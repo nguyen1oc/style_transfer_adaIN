@@ -57,8 +57,8 @@ python test.py \
   <img src="/results/0801.jpg" width="200" />
 </p>
 <p float="center">
-  <img src="/content/000000000599.jpg" width="200" />
-  <img src="/style/Vincent_van_Gogh_232.jpg" width="200" />
+  <img src="/content_resized/000000000599.jpg" width="200" />
+  <img src="/style_resized/Vincent_van_Gogh_232.jpg" width="200" />
   <img src="/results/0599.jpg" width="200" />
 </p>
 

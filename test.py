@@ -15,6 +15,7 @@ normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
 trans = transforms.Compose([transforms.RandomCrop(512),
                             transforms.ToTensor(),
                             normalize])
+
 def main():
     parser = argparse.ArgumentParser(description='AdaIN Style Transfer')
     parser.add_argument('-c', '--content', required=True, help='Content image path')
@@ -42,6 +43,11 @@ def main():
 
     c_tensor = trans(content_img).unsqueeze(0).to(device)
     s_tensor = trans(style_img).unsqueeze(0).to(device)
+    
+    os.makedirs('content_resized', exist_ok=True)
+    os.makedirs('style_resized', exist_ok=True)
+    save_image(denorm(c_tensor, device='cpu'), os.path.join('content_resized', os.path.basename(args.content)))
+    save_image(denorm(s_tensor, device='cpu'), os.path.join('style_resized', os.path.basename(args.style)))
 
     with torch.no_grad():
         output = model.generate(c_tensor, s_tensor, args.alpha)
