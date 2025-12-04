@@ -40,11 +40,12 @@ python test.py \
 
 ## Example
 <p float="left">
-  <img src="/content/000000000138.jpg" width="200" />
-  <img src="/style/Hieronymus_Bosch_107.jpg" width="200" />
+  <img src="/content/000000000801.jpg" width="200" />
+  <img src="/style/Vincent_van_Gogh_368.jpg" width="200" />
   <img src="/results/out_1.jpg" width="200" />
 </p>
-# Citation
+
+## Citation
 ```bash
 @inproceedings{huang2017adain,
   title={Arbitrary Style Transfer in Real-time with Adaptive Instance Normalization},
