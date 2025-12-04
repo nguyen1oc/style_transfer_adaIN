@@ -5,17 +5,16 @@ import torch
 from torchvision import transforms
 from torchvision.utils import save_image
 from model import Model
+from dataset import denorm
 import warnings
 warnings.filterwarnings("ignore")   
 
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])
-trans = transforms.Compose([transforms.ToTensor(), normalize])
 
-def denorm(tensor, device):
-    std = torch.Tensor([0.229, 0.224, 0.225]).reshape(-1,1,1).to(device)
-    mean = torch.Tensor([0.485, 0.456, 0.406]).reshape(-1,1,1).to(device)
-    return torch.clamp(tensor * std + mean, 0, 1)
+trans = transforms.Compose([transforms.RandomCrop(256),
+                            transforms.ToTensor(),
+                            normalize])
 
 def main():
     parser = argparse.ArgumentParser(description='AdaIN Style Transfer')
