@@ -38,22 +38,38 @@ python test.py \
   <img src='architecture.png' width="600px">
 </p>
 
-## Dataset
+## Datasets
+
+We use two datasets:
+
+1. **Content images**: [COCO 2017 Dataset](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset)  
+   - We use the `train2017` images as content images.  
+   - Images are randomly cropped and resized to 512x512.
+
+2. **Style images**: [Best Artworks of All Time](https://www.kaggle.com/datasets/ikarus777/best-artworks-of-all-time)  
+   - Each folder contains images by a single artist.  
+   - Images are randomly cropped and resized to 512x512.
+
+The dataset class also automatically saves the cropped/resized images into:  
+- `content_resized/`  
+- `style_resized/`
+
+---
 
 ## Example
 <p float="center">
-  <img src="/content/000000000149.jpg" width="200" />
-  <img src="/style/Georges_Seurat_10.jpg" width="200" />
+  <img src="/content_resized/000000000149.jpg" width="200" />
+  <img src="/style_resized/Georges_Seurat_10.jpg" width="200" />
   <img src="/results/0149.jpg" width="200" />
 </p>
 <p float="center">
-  <img src="/content/000000000813.jpg" width="200" />
-  <img src="/style/Hieronymus_Bosch_107.jpg" width="200" />
+  <img src="/content_resized/000000000813.jpg" width="200" />
+  <img src="/style_resized/Hieronymus_Bosch_107.jpg" width="200" />
   <img src="/results/0813.jpg" width="200" />
 </p>
 <p float="center">
-  <img src="/content/000000000801.jpg" width="200" />
-  <img src="/style/Vincent_van_Gogh_368.jpg" width="200" />
+  <img src="/content_resized/000000000801.jpg" width="200" />
+  <img src="/style_resized/Vincent_van_Gogh_368.jpg" width="200" />
   <img src="/results/0801.jpg" width="200" />
 </p>
 <p float="center">
