@@ -1,0 +1,32 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environments
+venv/
+env/
+.python_/
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore PyTorch model weights
+weights/*.pth
+weights/*.pt
+*.pth
+*.pt
+
+# Ignore Kaggle / Colab artifacts
+*.zip
+*.tar
+*.tar.gz
+
+# Ignore output images
+outputs/
+out/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
