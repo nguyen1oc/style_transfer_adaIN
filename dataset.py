@@ -23,7 +23,7 @@ def denorm(tensor, device='cpu'):
     return torch.clamp(tensor * std + mean, 0, 1)
 
 class StyleTransferDataset(Dataset):
-    def __init__(self, content_dir, style_dir, crop_size=256, resized_size=512, transform=trans):
+    def __init__(self, content_dir, style_dir, crop_size=256, resized_size=512, transform=None):
         self.crop_size = crop_size
         self.resized_size = resized_size
         self.transform = transform

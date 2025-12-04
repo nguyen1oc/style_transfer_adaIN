@@ -11,11 +11,9 @@ warnings.filterwarnings("ignore")
 
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])
-
-trans = transforms.Compose([transforms.RandomCrop(256),
+trans = transforms.Compose([transforms.RandomCrop(512),
                             transforms.ToTensor(),
                             normalize])
-
 def main():
     parser = argparse.ArgumentParser(description='AdaIN Style Transfer')
     parser.add_argument('-c', '--content', required=True, help='Content image path')
