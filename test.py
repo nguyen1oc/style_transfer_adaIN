@@ -51,13 +51,12 @@ def main():
     output_denorm = denorm(output, device)
 
     if args.output_name is None:
-        c_name = os.path.splitext(os.path.basename(args.content))[0]
-        s_name = os.path.splitext(os.path.basename(args.style))[0]
-        args.output_name = f"{c_name}_{s_name}"
+        c_base = os.path.splitext(os.path.basename(args.content))[0]
+        args.output_name = c_base[-4:]
 
     save_dir = "results"
     os.makedirs(save_dir, exist_ok=True)
-    output_path = os.path.join(save_dir, f"{args.output_name}_4.jpg")
+    output_path = os.path.join(save_dir, f"{args.output_name}.jpg")
     save_image(output_denorm, output_path)
     
     print(f"Result saved at: {output_path}")

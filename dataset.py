@@ -12,13 +12,18 @@ from torchvision import transforms
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])
 
+
+trans = transforms.Compose([transforms.RandomCrop(256),
+                            transforms.ToTensor(),
+                            normalize])
+
 def denorm(tensor, device='cpu'):
     mean = torch.tensor([0.485, 0.456, 0.406]).view(-1,1,1).to(device)
     std = torch.tensor([0.229, 0.224, 0.225]).view(-1,1,1).to(device)
     return torch.clamp(tensor * std + mean, 0, 1)
 
 class StyleTransferDataset(Dataset):
-    def __init__(self, content_dir, style_dir, crop_size=256, resized_size=512, transform=None):
+    def __init__(self, content_dir, style_dir, crop_size=256, resized_size=512, transform=trans):
         self.crop_size = crop_size
         self.resized_size = resized_size
         self.transform = transform

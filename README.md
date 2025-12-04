@@ -38,11 +38,28 @@ python test.py \
   <img src='architecture.png' width="600px">
 </p>
 
+## Dataset
+
 ## Example
-<p float="left">
+<p float="center">
+  <img src="/content/000000000149.jpg" width="200" />
+  <img src="/style/Georges_Seurat_10.jpg" width="200" />
+  <img src="/results/0149.jpg" width="200" />
+</p>
+<p float="center">
+  <img src="/content/000000000813.jpg" width="200" />
+  <img src="/style/Hieronymus_Bosch_107.jpg" width="200" />
+  <img src="/results/0813.jpg" width="200" />
+</p>
+<p float="center">
   <img src="/content/000000000801.jpg" width="200" />
   <img src="/style/Vincent_van_Gogh_368.jpg" width="200" />
-  <img src="/results/out_1.jpg" width="200" />
+  <img src="/results/0801.jpg" width="200" />
+</p>
+<p float="center">
+  <img src="/content/000000000599.jpg" width="200" />
+  <img src="/style/Vincent_van_Gogh_232.jpg" width="200" />
+  <img src="/results/0599.jpg" width="200" />
 </p>
 
 ## Citation
