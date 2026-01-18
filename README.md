@@ -82,7 +82,7 @@ The dataset class also automatically saves the cropped/resized images into:
 You can run a small demo by:
 ```bash
 python app.py
-
+```
 Then open your browser at: http://localhost:8000
 ![Demo](demo.gif)
 
