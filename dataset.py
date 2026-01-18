@@ -16,10 +16,18 @@ trans = transforms.Compose([transforms.RandomCrop(256),
                             transforms.ToTensor(),
                             normalize])
 
-def denorm(tensor, device='cpu'):
-    mean = torch.tensor([0.485, 0.456, 0.406]).view(-1,1,1).to(device)
-    std = torch.tensor([0.229, 0.224, 0.225]).view(-1,1,1).to(device)
+def denorm(tensor, device=None):
+    mean = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
+    std = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)
+
+    if device is None:
+        device = tensor.device
+
+    mean = mean.to(device)
+    std = std.to(device)
+
     return torch.clamp(tensor * std + mean, 0, 1)
+
 
 class StyleTransferDataset(Dataset):
     def __init__(self, content_dir, style_dir, crop_size=256, resized_size=512, transform=trans):

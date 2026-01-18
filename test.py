@@ -27,12 +27,7 @@ def main():
     
     args = parser.parse_args()
 
-    if torch.cuda.is_available() and args.gpu >= 0:
-        device = torch.device(f'cuda:{args.gpu}')
-    else:
-        print("CUDA not available, using CPU")
-        device = torch.device('cpu')
-
+    device = torch.device("cpu")
 
     model = Model(device).to(device)
     model.load_state_dict(torch.load(args.model_state_path, map_location=device))
@@ -46,8 +41,14 @@ def main():
     
     os.makedirs('content_resized', exist_ok=True)
     os.makedirs('style_resized', exist_ok=True)
-    save_image(denorm(c_tensor, device='cpu'), os.path.join('content_resized', os.path.basename(args.content)))
-    save_image(denorm(s_tensor, device='cpu'), os.path.join('style_resized', os.path.basename(args.style)))
+    save_image(
+        denorm(c_tensor.cpu()),
+        os.path.join('content_resized', os.path.basename(args.content))
+    )
+    save_image(
+        denorm(s_tensor.cpu()),
+        os.path.join('style_resized', os.path.basename(args.style))
+    )
 
     with torch.no_grad():
         output = model.generate(c_tensor, s_tensor, args.alpha)
@@ -55,6 +56,7 @@ def main():
     output_denorm = denorm(output, device)
 
     if args.output_name is None:
+        print("No output name provided, using content image name as output name")
         c_base = os.path.splitext(os.path.basename(args.content))[0]
         args.output_name = c_base[-4:]
 
