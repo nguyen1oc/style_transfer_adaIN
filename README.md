@@ -84,7 +84,7 @@ You can run a small demo by:
 python app.py
 ```
 Then open your browser at: http://localhost:8000
-![Demo](demo.mp4)
+![Demo](demo.gif)
 
 ## Citation
 ```bash
